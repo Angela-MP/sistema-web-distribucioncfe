@@ -29,8 +29,8 @@ if($_SESSION["s_usuario"] === null){
     <title>CFE Distribución Tuxtepec | Supervisión de obras</title>
 
     <!--DataTables CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/datatables/datatables.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/datatables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/datatables2/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/datatables2/DataTables-1.13.1/css/dataTables.bootstrap5.min.css">
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <!--Hoja de estilos-->
@@ -65,8 +65,11 @@ if($_SESSION["s_usuario"] === null){
         <li class="nav-item active">
           <a class="nav-link" href="pdf/formatos.pdf">Formatos</a>
         </li>
+        <li>
+          <a class="nav-link" href="pdf/Manual_de_usuario.pdf" role="button" title="Manual de usuario"><i class="bi bi-patch-question"></i></a>
+        </li>        
         <li class="nav-item">
-          <a class="nav-link" href="bd/logout.php" role="button">Cerrar sesión</a>
+          <a class="nav-link" href="bd/logout.php" role="button" title="Cerrar sesión">|<i class="bi bi-person-dash-fill" style="font-size: 25px; color: #00724E;text-indent: 1em;"></i></a>
         </li>        
       </ul>
     </div>
@@ -90,16 +93,16 @@ if($_SESSION["s_usuario"] === null){
                         <table id="tablaObras" class="table table-striped table-bordered table-condensed" style="width:100%">
                         <thead class="text-center">
                             <tr>
-                                <th>ID</th>
+                                <!--<th>ID</th>-->
                                 <th>Título</th>
                                 <th>Solicitante</th>
                                 <th>Inicio</th>
                                 <th>Termino</th>
-                                <!--<th>Plano</th>
+                                <th>Plano</th>
                                 <th>Oficio de presupuesto</th>
                                 <th>Oficio de aprobación</th>
                                 <th>Registro de supervisión</th>
-                                <th>Acta de entrega - recepción</th>-->
+                                <th>Acta de entrega - recepción</th>
                                 <th>Observaciones</th>
                                 <!--<th>Archivo</th>-->
                                 <th>Acciones</th>
@@ -141,24 +144,69 @@ if($_SESSION["s_usuario"] === null){
         <div class="modal-body">
             <div class="modal-body">
                 <div class="form-group">
-                <label for="nombre" class="col-form-label">Nombre de la obra:</label>
-                <input type="text" class="form-control" id="nombre">
-                </div>
-                <label for="solicitante" class="col-form-label">Solicitante/Constructor:</label>
-                <input type="text" class="form-control" id="solicitante">
-                </div>                                
-                <div class="form-group">
-                <label for="fecha_inicio" class="col-form-label">Fecha de inicio:</label>
-                <input type="date" class="form-control" id="fecha_inicio">
+                  <i class="bi bi-pencil-square"><label for="nombre" class="col-form-label">&nbsp;Título de la obra</label></i>
+                    <input type="text" class="form-control" id="nombre">
                 </div>
                 <div class="form-group">
-                <label for="fecha_final" class="col-form-label">Fecha de termino:</label>
-                <input type="date" class="form-control" id="fecha_final">
+                  <label for="tipo_obra" class="col-form-label">&nbsp;Tipo de obra</label></i>
+                
+
+
+                  <div class="form-group form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Obra cedida por terceros</label>
+                  </div>  
+                  <div class="form-group form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Obra propia</label>
+                  </div>
                 </div>
+                
                 <div class="form-group">
-                <label for="observacion" class="col-form-label">Observaciones</label>
-                <input type="text" class="form-control" id="observacion">
-                </div>                             
+                  <i class="bi bi-file-person"><label for="solicitante" class="col-form-label">&nbsp;Solicitante/Constructor</label></i>
+                  <input type="text" class="form-control" id="solicitante">
+                </div>         
+
+                <div class="form-group">
+                  <i class="bi bi-calendar-event"><label for="fecha_inicio" class="col-form-label">&nbsp;Fecha de inicio</label></i>
+                  <input type="date" class="form-control" id="fecha_inicio">
+                </div>
+
+                <div class="form-group">
+                  <i class="bi bi-calendar-x"><label for="fecha_final" class="col-form-label">&nbsp;Fecha de termino</label></i>
+                  <input type="date" class="form-control" id="fecha_final">
+                </div>
+
+                <div class="form-group">
+                  <label for="observacion" class="col-form-label">&nbsp;Plano</label>
+                  <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                </div>                
+                
+                <div class="form-group">
+                  <label for="observacion" class="col-form-label">&nbsp;Oficio de presupuesto</label>
+                  <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                </div>
+
+                <div class="form-group">
+                  <label for="observacion" class="col-form-label">&nbsp;Oficio de aprobación</label>
+                  <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                </div>
+
+                <div class="form-group">
+                  <label for="observacion" class="col-form-label">&nbsp;Registro de supervisión</label>
+                  <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                </div>
+                
+                <div class="form-group">
+                  <label for="observacion" class="col-form-label">&nbsp;Acta de entrega - recepción</label>
+                  <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                </div>
+
+                <div class="form-group">
+                  <i class="bi bi-chat-dots-fill"><label for="observacion" class="col-form-label">&nbsp;Observaciones</label></i>
+                  <input type="text" class="form-control" id="observacion">
+                </div> 
+
             </div>
             <div class="modal-footer">
               <button id="btnCancelar" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
@@ -171,17 +219,17 @@ if($_SESSION["s_usuario"] === null){
 </div>
      
     <!--JQuery, Bootstrap, Popper, Sweetalert-->
-    <script src="jquery/jquery-3.6.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="popper/popper.min.js"></script>
-    <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="assets/jquery/jquery-3.6.3.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/popper/popper.min.js"></script>
+    <script src="assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     
     <!--Datatables JS-->
     <script type="text/javascript" src="datatables/datatables.min.js"></script>
     
     <script src="code.js"></script>    
 
-
+<br />
 <!--PIE DE PAGINA-->  
 <footer class="footer">
 <div class="container bottom_border">
@@ -195,7 +243,7 @@ if($_SESSION["s_usuario"] === null){
 </div>
 
 
-<div class=" col-sm-4 col-md  col-12 col">
+<div class="col-sm-4 col-md  col-12 col">
   <h5 class="headin5_amrc col_white_amrc pt2">Atención a clientes</h5>
 <!--headin5_amrc ends here-->
 
@@ -223,7 +271,7 @@ if($_SESSION["s_usuario"] === null){
     <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>
     
     <!--Datatables JS-->
-    <script type="text/javascript" src="datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="assets/datatables2/datatables.min.js"></script>
      
     <script src="main.js"></script><!--Script de dataTables-->  
 

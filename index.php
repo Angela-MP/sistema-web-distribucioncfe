@@ -8,6 +8,8 @@
     <title>CFE Distribución Tuxtepec | Supervisión de obras</title>
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!--Iconos de Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">    
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">
 
@@ -30,6 +32,9 @@
                   <li class="nav-item active">
                     <a class="nav-link" href="pdf/formatos.pdf">Formatos</a>
                   </li>
+                  <li>
+                    <a class="nav-link" href="pdf/Manual_de_usuario.pdf" role="button" title="Manual de usuario"><i class="bi bi-patch-question"></i></a>
+                  </li>                  
                 </ul>
               </div>
           </div>
@@ -42,8 +47,8 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-colum" class="col-md-6">
                     <div id="login-box" class="col-md-12 bg-light text-dark">
-                        <form id="form-login" class="form" action="" method="post">
-                            <h3 class="text-center text-dark">Iniciar sesión</h3>
+                        <form id="form-login" class="form" action="" method="post">                            
+                            <i class="bi bi-person-circle" style="font-size: 70px; padding-left: 80px;"></i>
                             <div class="form-group">
                                 <!--<label for="usuario" class="text-dark">Usuario</label>-->
                                 <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario">
@@ -55,7 +60,7 @@
                             </div>
                             <br />     
                             <div class="form-group text-center">
-                                <input type="submit" name="submit" class="btn btn-success btn-lg btn-block" value="Iniciar sesion">
+                                <input type="submit" name="submit" class="btn btn-success btn-lg btn-block" value="Entrar">
                             </div>                                                    
                         </form>
                     </div>

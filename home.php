@@ -21,6 +21,8 @@ if($_SESSION["s_usuario"] === null){
     <title>CFE Distribución Tuxtepec | Supervisión de obras</title>
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!--Iconos de Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/styleOT.css">
 
 
@@ -46,9 +48,12 @@ if($_SESSION["s_usuario"] === null){
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="pdf/formatos.pdf">Formatos</a>
+            <li>
+              <a class="nav-link" href="pdf/Manual_de_usuario.pdf" role="button" title="Manual de usuario"><i class="bi bi-patch-question"></i></a>
             </li>
-                <a class="nav-link" href="bd/logout.php" role="button">Cerrar sesión</a>
-            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bd/logout.php" role="button" title="Cerrar sesión">|<i class="bi bi-person-dash-fill" style="font-size: 25px; color: #00724E;text-indent: 1em;"></i></a>
+            </li>             
           </ul>
       </div>
       </div>
@@ -68,7 +73,7 @@ if($_SESSION["s_usuario"] === null){
        </figcaption>
        </figure>          
      <div class="col-lg-12">
-       <img class="img-fluid mx-auto d-block" src="img/zonas.png">
+       <img class="img-fluid mx-auto d-block" src="img/papaloapan.jpg">
      </div>
   </div>    
   <br />
